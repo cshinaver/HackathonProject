@@ -1,6 +1,7 @@
 package parser
 
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 internal class RedditDataParserTest {
     private val redditDataParser = RedditDataParser()
@@ -8,6 +9,6 @@ internal class RedditDataParserTest {
     @Test
     fun testSampleDataGetsParsed() {
         val authorComments = redditDataParser.parseRedditSampleData()
-        println(authorComments.size)
+        assertEquals(10000, authorComments.size)
     }
 }
