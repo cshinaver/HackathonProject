@@ -13,9 +13,9 @@ internal class SubredditGraphFileWriterTest {
 
     @Test
     fun testGraphGetsWrittenToString() {
-        val subredditNode = SubredditNode("eww", mutableListOf(
-                Edge("eww", "nasty", 1),
-                Edge("eww", "nasty", 1)
+        val subredditNode = SubredditNode("eww", hashMapOf(
+                Pair("eww", Edge("eww", "nasty", 1)),
+                Pair("nasty", Edge("nasty", "eww", 1))
         ))
         val serializedNode = subredditGraphFileWriter.writeSubredditNodesToJson(listOf(subredditNode))
         val jsonNode = jsonParser.parseStringIntoJsonArray(serializedNode)

@@ -11,9 +11,9 @@ class SubredditGraphFileWriter {
         for (node in nodes) {
             // Get subreddit name
             val jsonNode = JSONObject()
-            val subreddit = node.subreddit
+            val subreddit = node.name
             val edges = JSONArray()
-            for (edge in node.authorEdges) {
+            for (edge in node.authorEdges.values) {
                 val jsonEdge = generateJsonEdge(edge)
                 edges.add(jsonEdge)
             }
